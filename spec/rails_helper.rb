@@ -49,7 +49,7 @@ RSpec.configure do |config|
   # start by truncating the tables and use the faster transaction when the test are run
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
-	  DatabaseCleaner.strategy :transaction
+	  DatabaseCleaner.strategy = :transaction
   end
 
   # start transaction strategy as example are run
