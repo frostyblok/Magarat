@@ -38,7 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'pg'
 gem 'figaro'
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'devise'

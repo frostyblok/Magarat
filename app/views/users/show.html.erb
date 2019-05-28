@@ -2,24 +2,28 @@
   <div class="profile row">
     <div class="col-md-4 avatar">
       <div class="wrapper">
-        <img src="http://creativeedtech.weebly.com/uploads/4/1/6/3/41634549/published/avatar.png?1487742111">
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar %>
+        <% end %>
       </div>
     </div>
 
     <div class="col-md-8 basic-info">
       <div class="user-wrapper">
-        <h2 class="username"><%= current_user.username %></h2>
-        <a href="<%= edit_user_path(current_user) %>" class="edit-profile">
-          <button>Edit Profile</button>
-        </a>
+        <h2 class="username"><%= @user.username %></h2>
+        <% if current_user == @user %>
+          <a href="<%= edit_user_path(current_user) %>" class="edit-profile">
+            <button>Edit Profile</button>
+          </a>
+        <% end %>
       </div>
       <ul class="posts">
         <li><span><%= @posts.count %></span> posts</li>
         <li><span>195</span> followers</li>
         <li><span>345</span> following</li>
       </ul>
-      <h2 class="name"><%= current_user.name %></h2>
-      <%= link_to current_user.website, current_user.website, class: "website" %>
+      <h2 class="name"><%= @user.name %></h2>
+      <%= link_to @user.website, @user.website, class: "website" %>
     </div>
   </div>
 
