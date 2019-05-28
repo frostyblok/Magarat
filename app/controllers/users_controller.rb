@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[show edit]
   def show
-    @posts = current_user.posts.order(created_at: :desc)
+    @posts = @user.posts.order(created_at: :desc)
   end
 
   def edit
-	  current_user
+    @posts = @user.posts.order(created_at: :desc)
   end
 
   def update
@@ -16,7 +17,11 @@ class UsersController < ApplicationController
 
   private
 
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
-    params.require(:user).permit(:name, :username, :website, :bio, :phone, :gender, :email)
+    params.require(:user).permit(:name, :username, :website, :bio, :phone, :gender, :email, :avatar)
   end
 end

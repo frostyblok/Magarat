@@ -236,7 +236,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
-  bootstrap (~> 4.1.1)
+  bootstrap
   byebug
   coffee-rails (~> 4.2)
   database_cleaner
