@@ -14,10 +14,10 @@
     <nav class="navbar navbar-light bg-light d-flex">
       <div class="container">
         <div class="logo">
-          <a class="navbar-brand" href="#">
+          <%= link_to root_path, class: "navbar-brand" do %>
             <%= fa_stacked_icon "camera inverse", base: "circle"%>
             Instagram
-          </a>
+          <% end %>
         </div>
         <div class="m-auto">
           <form class="form-inline search-form">
