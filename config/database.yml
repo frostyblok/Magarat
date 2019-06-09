@@ -9,9 +9,9 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
   encoding: unicode
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  host: <%= ENV['DB_HOST'] %>
+  username: <%= Rails.application.credentials.dig :db_username %>
+  password: <%= Rails.application.credentials.dig :db_password %>
+  host: <%= Rails.application.credentials.dig :db_host %>
 
 development:
   <<: *default
@@ -27,7 +27,7 @@ test:
 production:
   <<: *default
   database: magarat_prod
-  username: <%= ENV['DB_USERNAME_PROD'] %>
-  password: <%= ENV['DB_PASSWORD_PROD'] %>
-  host: <%= ENV['DB_HOST_PROD'] %>
+  username: <%= Rails.application.credentials.dig :db_username_prod %>
+  password: <%= Rails.application.credentials.dig :db_password_prod %>
+  host: <%= Rails.application.credentials.dig :db_host_prod %>
   port: 5432
