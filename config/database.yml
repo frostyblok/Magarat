@@ -27,3 +27,7 @@ test:
 production:
   <<: *default
   database: magarat_prod
+  username: <%= ENV['DB_USERNAME_PROD'] %>
+  password: <%= ENV['DB_PASSWORD_PROD'] %>
+  host: <%= ENV['DB_HOST_PROD'] %>
+  port: 5432
